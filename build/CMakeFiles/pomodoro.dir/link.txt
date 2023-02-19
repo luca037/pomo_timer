@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpomodoro.a CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o
+/usr/bin/ranlib libpomodoro.a
