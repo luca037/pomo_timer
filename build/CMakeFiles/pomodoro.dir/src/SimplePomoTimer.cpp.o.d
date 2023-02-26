@@ -1,7 +1,7 @@
-CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o: \
- /home/luca-pi/Desktop/random/pomodoro/src/SimpleTimer.cpp \
+CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o: \
+ /home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp \
  /usr/include/stdc-predef.h \
- /home/luca-pi/Desktop/random/pomodoro/src/../include/SimplePomoTimer.h \
+ /home/luca/Desktop/random/pomodoro/src/../include/SimplePomoTimer.h \
  /usr/include/c++/12.2.1/fstream /usr/include/c++/12.2.1/istream \
  /usr/include/c++/12.2.1/ios /usr/include/c++/12.2.1/iosfwd \
  /usr/include/c++/12.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

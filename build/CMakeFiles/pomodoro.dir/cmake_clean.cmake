@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o"
-  "CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o.d"
+  "CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o"
+  "CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o.d"
   "libpomodoro.a"
   "libpomodoro.pdb"
 )

@@ -22,7 +22,7 @@ void timer::SimplePomoTimer::one_pomo() {
     // work
     wait_input();
     int min{};
-    int sec{50};
+    int sec{};
     while (work_min_ != min) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         ++sec;
@@ -34,8 +34,7 @@ void timer::SimplePomoTimer::one_pomo() {
 
     // break
     wait_input();
-    min = 0;
-    sec = 50;
+    min = sec = 0;
     while (break_min_ != min) {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         ++sec;

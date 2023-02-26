@@ -5,6 +5,8 @@
 
 namespace timer {
 
+    static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay ../mixkit-gaming-lock-2848.wav";
+
 class SimplePomoTimer {
 public:
     SimplePomoTimer(int w, int b, int p, char* fn=nullptr, char* d=nullptr);
@@ -12,6 +14,8 @@ public:
     SimplePomoTimer& operator=(const SimplePomoTimer&) = delete;
 
     void one_pomo();
+
+    // return true if all pomos are done
     bool done() { return max_pomos_ == today_pomos_; }
 
     ~SimplePomoTimer() {
@@ -20,8 +24,6 @@ public:
             calendar_.close();
         }
     }
-
-    static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up! Go back to work\" && paplay ../mixkit-gaming-lock-2848.wav";
 
 private:
     int work_min_; // working time minutes

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/luca-pi/Desktop/random/pomodoro/src/SimpleTimer.cpp" "CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o" "gcc" "CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o.d"
+  "/home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp" "CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o" "gcc" "CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o.d"
   )
 
 # Targets to which this target links.

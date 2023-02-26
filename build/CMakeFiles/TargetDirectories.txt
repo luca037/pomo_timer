@@ -1,4 +1,4 @@
-/home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles/pomodoro.dir
-/home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles/pomo.dir
-/home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles/edit_cache.dir
-/home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles/rebuild_cache.dir
+/home/luca/Desktop/random/pomodoro/build/CMakeFiles/pomodoro.dir
+/home/luca/Desktop/random/pomodoro/build/CMakeFiles/pomo.dir
+/home/luca/Desktop/random/pomodoro/build/CMakeFiles/edit_cache.dir
+/home/luca/Desktop/random/pomodoro/build/CMakeFiles/rebuild_cache.dir

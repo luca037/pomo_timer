@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/luca-pi/Desktop/random/pomodoro
+CMAKE_SOURCE_DIR = /home/luca/Desktop/random/pomodoro
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luca-pi/Desktop/random/pomodoro/build
+CMAKE_BINARY_DIR = /home/luca/Desktop/random/pomodoro/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles /home/luca-pi/Desktop/random/pomodoro/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/luca/Desktop/random/pomodoro/build/CMakeFiles /home/luca/Desktop/random/pomodoro/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/luca/Desktop/random/pomodoro/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,29 +142,29 @@ pomo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomo.dir/build.make CMakeFiles/pomo.dir/build
 .PHONY : pomo/fast
 
-src/SimpleTimer.o: src/SimpleTimer.cpp.o
-.PHONY : src/SimpleTimer.o
+src/SimplePomoTimer.o: src/SimplePomoTimer.cpp.o
+.PHONY : src/SimplePomoTimer.o
 
 # target to build an object file
-src/SimpleTimer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomodoro.dir/build.make CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o
-.PHONY : src/SimpleTimer.cpp.o
+src/SimplePomoTimer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomodoro.dir/build.make CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o
+.PHONY : src/SimplePomoTimer.cpp.o
 
-src/SimpleTimer.i: src/SimpleTimer.cpp.i
-.PHONY : src/SimpleTimer.i
+src/SimplePomoTimer.i: src/SimplePomoTimer.cpp.i
+.PHONY : src/SimplePomoTimer.i
 
 # target to preprocess a source file
-src/SimpleTimer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomodoro.dir/build.make CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.i
-.PHONY : src/SimpleTimer.cpp.i
+src/SimplePomoTimer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomodoro.dir/build.make CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.i
+.PHONY : src/SimplePomoTimer.cpp.i
 
-src/SimpleTimer.s: src/SimpleTimer.cpp.s
-.PHONY : src/SimpleTimer.s
+src/SimplePomoTimer.s: src/SimplePomoTimer.cpp.s
+.PHONY : src/SimplePomoTimer.s
 
 # target to generate assembly for a file
-src/SimpleTimer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomodoro.dir/build.make CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.s
-.PHONY : src/SimpleTimer.cpp.s
+src/SimplePomoTimer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pomodoro.dir/build.make CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.s
+.PHONY : src/SimplePomoTimer.cpp.s
 
 src/pomo.o: src/pomo.cpp.o
 .PHONY : src/pomo.o
@@ -200,9 +200,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... pomo"
 	@echo "... pomodoro"
-	@echo "... src/SimpleTimer.o"
-	@echo "... src/SimpleTimer.i"
-	@echo "... src/SimpleTimer.s"
+	@echo "... src/SimplePomoTimer.o"
+	@echo "... src/SimplePomoTimer.i"
+	@echo "... src/SimplePomoTimer.s"
 	@echo "... src/pomo.o"
 	@echo "... src/pomo.i"
 	@echo "... src/pomo.s"

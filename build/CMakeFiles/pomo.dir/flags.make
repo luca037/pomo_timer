@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/luca-pi/Desktop/random/pomodoro/include
+CXX_INCLUDES = -I/home/luca/Desktop/random/pomodoro/include
 
 CXX_FLAGS = 
 

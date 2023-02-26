@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/luca-pi/Desktop/random/pomodoro
+CMAKE_SOURCE_DIR = /home/luca/Desktop/random/pomodoro
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/luca-pi/Desktop/random/pomodoro/build
+CMAKE_BINARY_DIR = /home/luca/Desktop/random/pomodoro/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/pomodoro.dir/depend.make
@@ -69,31 +69,31 @@ include CMakeFiles/pomodoro.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/pomodoro.dir/flags.make
 
-CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o: CMakeFiles/pomodoro.dir/flags.make
-CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o: /home/luca-pi/Desktop/random/pomodoro/src/SimpleTimer.cpp
-CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o: CMakeFiles/pomodoro.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o -MF CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o.d -o CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o -c /home/luca-pi/Desktop/random/pomodoro/src/SimpleTimer.cpp
+CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o: CMakeFiles/pomodoro.dir/flags.make
+CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o: /home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp
+CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o: CMakeFiles/pomodoro.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/luca/Desktop/random/pomodoro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o -MF CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o.d -o CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o -c /home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp
 
-CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca-pi/Desktop/random/pomodoro/src/SimpleTimer.cpp > CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.i
+CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp > CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.i
 
-CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca-pi/Desktop/random/pomodoro/src/SimpleTimer.cpp -o CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.s
+CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp -o CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.s
 
 # Object files for target pomodoro
 pomodoro_OBJECTS = \
-"CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o"
+"CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o"
 
 # External object files for target pomodoro
 pomodoro_EXTERNAL_OBJECTS =
 
-libpomodoro.a: CMakeFiles/pomodoro.dir/src/SimpleTimer.cpp.o
+libpomodoro.a: CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o
 libpomodoro.a: CMakeFiles/pomodoro.dir/build.make
 libpomodoro.a: CMakeFiles/pomodoro.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libpomodoro.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/luca/Desktop/random/pomodoro/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libpomodoro.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/pomodoro.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pomodoro.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/pomodoro.dir/clean:
 .PHONY : CMakeFiles/pomodoro.dir/clean
 
 CMakeFiles/pomodoro.dir/depend:
-	cd /home/luca-pi/Desktop/random/pomodoro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luca-pi/Desktop/random/pomodoro /home/luca-pi/Desktop/random/pomodoro /home/luca-pi/Desktop/random/pomodoro/build /home/luca-pi/Desktop/random/pomodoro/build /home/luca-pi/Desktop/random/pomodoro/build/CMakeFiles/pomodoro.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/luca/Desktop/random/pomodoro/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/luca/Desktop/random/pomodoro /home/luca/Desktop/random/pomodoro /home/luca/Desktop/random/pomodoro/build /home/luca/Desktop/random/pomodoro/build /home/luca/Desktop/random/pomodoro/build/CMakeFiles/pomodoro.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/pomodoro.dir/depend
 

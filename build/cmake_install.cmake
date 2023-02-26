@@ -1,4 +1,4 @@
-# Install script for directory: /home/luca-pi/Desktop/random/pomodoro
+# Install script for directory: /home/luca/Desktop/random/pomodoro
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/luca-pi/Desktop/random/pomodoro/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/luca/Desktop/random/pomodoro/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
