@@ -29,9 +29,8 @@ int main(int argc, char* argv[]) {
     // start timer
     timer::SimplePomoTimer t{w, b, p, argv[1], argv[2]};
     while (!t.done()) {
-        t.one_pomo();
-        // end session asking
-        if (!t.done()) {
+        t.one_pomo(); 
+        if (!t.done()) { // end session asking
             cout << "You done a pomo!" << endl
                  << "Do you want to end you session here? [y/n]" << endl;
              for (char c; cin >> c; )

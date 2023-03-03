@@ -10,12 +10,11 @@ namespace timer {
 class SimplePomoTimer {
 public:
     SimplePomoTimer(int w, int b, int p, char* fn=nullptr, char* d=nullptr);
-    SimplePomoTimer(const SimplePomoTimer&) = delete;
-    SimplePomoTimer& operator=(const SimplePomoTimer&) = delete;
 
+    // do a complete pomo: work and break
     void one_pomo();
 
-    // return true if all pomos are done
+    // return true if max number pomos equals today pomos
     bool done() { return max_pomos_ == today_pomos_; }
 
     ~SimplePomoTimer() {
@@ -25,16 +24,21 @@ public:
         }
     }
 
+    SimplePomoTimer(const SimplePomoTimer&) = delete;
+    SimplePomoTimer& operator=(const SimplePomoTimer&) = delete;
+
 private:
     int work_min_; // working time minutes
     int break_min_; // break time minutes
     int max_pomos_; // max pomos in a row
-    int today_pomos_;
+    int today_pomos_; // pomo counter
+    bool is_working_; // current state
     std::ofstream calendar_;
-    void print_state(int min, int sec, bool w); // print timer and info state
-    void wait_input(); // wait user input
+    void print_state(int min, int sec, bool w, bool s); // print timer and info state
+    void wait_start(); // wait user input
 };
 
+void skip_timer(bool* s); // check if user want to skip a timer loop
 
 } // end namespace
 

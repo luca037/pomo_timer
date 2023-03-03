@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/luca/Desktop/random/pomodoro/build",
+  "command": "/usr/bin/c++  -I/home/luca/Desktop/random/pomodoro/include  -o CMakeFiles/pomodoro.dir/src/SimplePomoTimer.cpp.o -c /home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp",
+  "file": "/home/luca/Desktop/random/pomodoro/src/SimplePomoTimer.cpp"
+},
+{
+  "directory": "/home/luca/Desktop/random/pomodoro/build",
+  "command": "/usr/bin/c++  -I/home/luca/Desktop/random/pomodoro/include  -o CMakeFiles/pomo.dir/src/pomo.cpp.o -c /home/luca/Desktop/random/pomodoro/src/pomo.cpp",
+  "file": "/home/luca/Desktop/random/pomodoro/src/pomo.cpp"
+}
+]
