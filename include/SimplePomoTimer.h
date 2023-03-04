@@ -34,7 +34,7 @@ private:
     int today_pomos_; // pomo counter
     bool is_working_; // current state
     std::ofstream calendar_;
-    void print_state(int min, int sec, bool w, bool s); // print timer and info state
+    void print_state(int min, int sec); // print timer and info state
     void wait_start(); // wait user input
 };
 
