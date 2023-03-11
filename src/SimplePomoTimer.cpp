@@ -58,16 +58,14 @@ void timer::SimplePomoTimer::print_state(int min, int sec) {
               << "    * Work time: " << work_min_ << " min" << std::endl
               << "    * Break time: " << break_min_ << " min" << std::endl
               << "+-------------------------+" << std::endl
-              << ((is_working_)? "Working time:" : "Break time:") << std::endl
+              << ((is_working_)? " Working time:" : " Break time:") << std::endl
               << "  timer: " << min << ":" << sec << std::endl
               << "  pomos: " << today_pomos_ << "/" << max_pomos_ << std::endl
+              << "+-------------------------+" << std::endl
               << "Type 's' start/skip timer" << std::endl;
 }
 
 void timer::skip_timer(bool* s) {
     for (char c; std::cin >> c && !(*s); )
-        if (c == 's') {
-            *s = true;
-            return;
-        }
+        if (c == 's') { *s = true; return; }
 }

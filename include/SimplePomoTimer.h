@@ -5,7 +5,7 @@
 
 namespace timer {
 
-    static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay ../mixkit-gaming-lock-2848.wav";
+static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay ../mixkit-gaming-lock-2848.wav";
 
 class SimplePomoTimer {
 public:

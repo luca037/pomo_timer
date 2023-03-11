@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
                  << "(timer restarts automatically after the answer)" << endl;
             for (char c; cin >> c; )
                 if (c == 'y') return 0; // end session
-                else break;
+                else if (c == 'n') break;
         }
     }
     cout << "We're done for today. Good job" << std::endl;
