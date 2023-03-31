@@ -18,32 +18,36 @@ timer::SimplePomoTimer::SimplePomoTimer(int w, int b, int p, char* fn, char* d)
 void timer::SimplePomoTimer::one_pomo() {
     if (done()) return; // no more pomo
 
-    // work
+    // start work
     is_working_ = 1;
     int min{}, sec{};
     bool skip{}; // thread comunication
 
     std::thread thr{skip_timer, &skip}; // start new thread
     while (work_min_ != min && !skip) { // work counter
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        print_state(min, sec);
         ++sec;
-        if (sec == 60) { ++min; sec = 0; } // minutes check
-        print_state(min, sec); // print timer
+        if (sec == 60) { ++min; sec = 0; }
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
-    system(kNotifySoundCmd);
-    if (skip) for (char c; std::cin >> c; ) if (c == 's') break; // if skipped
-    thr.join(); // wait thread
+    print_state(min, sec);
 
-    // break
+    // notify and wait to restart
+    system(kNotifySoundCmd);
+    if (skip) for (char c; std::cin >> c; ) if (c == 's') break; // if user skipped
+    thr.join();
+
+    // start break
     is_working_ = sec = min = skip = 0; // reset var
 
     thr = std::thread{skip_timer, &skip}; // start new thread
     while (break_min_ != min && !skip) { // break counter
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        print_state(min, sec);
         ++sec;
-        if (sec == 60) { ++min; sec = 0; } // minutes check
-        print_state(min, sec); // print timer
+        if (sec == 60) { ++min; sec = 0; }
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
+    print_state(min, sec);
 
     // end
     ++today_pomos_;

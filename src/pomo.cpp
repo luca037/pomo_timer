@@ -4,16 +4,29 @@
 
 using namespace std;
 
+// check if string contains only digits
 bool isdigit(const string& s) {
     for (char c : s)
         if (!isdigit(c)) return false;
     return true;
 }
 
+// ask for a number
 int init_time() {
     for (string s; cin >> s; )
         if (isdigit(s)) return stoi(s);
     return 0;
+}
+
+// ask to quit session
+bool end_session_asking() {
+    cout << "You done a pomo!" << endl
+         << "Do you want to end you session here? [y/n]" << endl 
+         << "(timer restarts automatically after the answer)" << endl;
+    for (char c; cin >> c; )
+        if (c == 'y') return true; // end session
+        else if (c == 'n') break;
+    return false;
 }
 
 int main(int argc, char* argv[]) {
@@ -29,22 +42,16 @@ int main(int argc, char* argv[]) {
     timer::SimplePomoTimer t{w, b, p, argv[1], argv[2]};
 
     // wait to start
-    std::cout << "Type 's' to start timer" << std::endl;
-    for (char c; std::cin >> c; ) if (c == 's') break;
+    cout << "Type 's' to start timer" << endl;
+    for (char c; cin >> c; ) if (c == 's') break;
 
     // start session
-    while (!t.done()) {
-        t.one_pomo(); 
-        if (!t.done()) { // end session asking
-            cout << "You done a pomo!" << endl
-                 << "Do you want to end you session here? [y/n]" << endl 
-                 << "(timer restarts automatically after the answer)" << endl;
-            for (char c; cin >> c; )
-                if (c == 'y') return 0; // end session
-                else if (c == 'n') break;
-        }
+    while (1) {
+        t.one_pomo();
+        if (t.done()) break;
+        else if (end_session_asking()) break;
     }
-    cout << "We're done for today. Good job" << std::endl;
+    cout << "We're done for today. Good job" << endl;
 
     return 0;
 }
