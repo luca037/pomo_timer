@@ -2,10 +2,12 @@
 #define SIMPLEPOMOTIMER_H
 
 #include <fstream>
+#include <atomic>
 
 namespace timer {
 
-static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay ../mixkit-gaming-lock-2848.wav";
+static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay \
+                                           ../mixkit-gaming-lock-2848.wav";
 
 class SimplePomoTimer {
 public:
@@ -19,7 +21,8 @@ public:
 
     ~SimplePomoTimer() {
         if(calendar_.is_open()) {
-            calendar_ << "dp: " << today_pomos_ << "/" << max_pomos_ << std::endl;
+            calendar_ << "dp: " << today_pomos_ << "/"
+                      << max_pomos_ << std::endl;
             calendar_.close();
         }
     }
@@ -37,7 +40,7 @@ private:
     void print_state(int min, int sec); // print timer and settings
 };
 
-void skip_timer(bool* s); // check if user want to skip a timer loop
+void skip_timer(std::atomic_bool* s); // check if user want to skip a timer loop
 
 } // end namespace
 

@@ -5,7 +5,8 @@
 #include <chrono>
 
 timer::SimplePomoTimer::SimplePomoTimer(int w, int b, int p, char* fn, char* d)
-    : work_min_{w}, break_min_{b}, max_pomos_{p}, today_pomos_{0}, is_working_{0} {
+        : work_min_{w}, break_min_{b},
+          max_pomos_{p}, today_pomos_{0}, is_working_{0} {
     if (!fn) return;
     calendar_.open(fn, std::ofstream::app);
     // save settings in calendar file
@@ -21,10 +22,10 @@ void timer::SimplePomoTimer::one_pomo() {
     // start work
     is_working_ = 1;
     int min{}, sec{};
-    bool skip{}; // thread comunication
+    std::atomic_bool skip{}; // thread comunication
 
     std::thread thr{skip_timer, &skip}; // start new thread
-    while (work_min_ != min && !skip) { // work counter
+    while (work_min_ != min && !skip.load()) { // work counter
         print_state(min, sec);
         ++sec;
         if (sec == 60) { ++min; sec = 0; }
@@ -34,14 +35,15 @@ void timer::SimplePomoTimer::one_pomo() {
 
     // notify and wait to restart
     system(kNotifySoundCmd);
-    if (skip) for (char c; std::cin >> c; ) if (c == 's') break; // if user skipped
+    if (skip.load()) for (char c; std::cin >> c; ) if (c == 's') break;
     thr.join();
 
     // start break
-    is_working_ = sec = min = skip = 0; // reset var
+    is_working_ = sec = min = 0; // reset var
+    skip.store(false);
 
     thr = std::thread{skip_timer, &skip}; // start new thread
-    while (break_min_ != min && !skip) { // break counter
+    while (break_min_ != min && !skip.load()) { // break counter
         print_state(min, sec);
         ++sec;
         if (sec == 60) { ++min; sec = 0; }
@@ -69,7 +71,7 @@ void timer::SimplePomoTimer::print_state(int min, int sec) {
               << "Type 's' start/skip timer" << std::endl;
 }
 
-void timer::skip_timer(bool* s) {
-    for (char c; std::cin >> c && !(*s); )
-        if (c == 's') { *s = true; return; }
+void timer::skip_timer(std::atomic_bool* s) {
+    for (char c; std::cin >> c && !(s->load()); )
+        if (c == 's') { s->store(true); return; }
 }
