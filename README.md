@@ -1,5 +1,5 @@
 # pomo_timer
-A pomodoro timer written in C++.
+Simple pomodoro timer.
 ### Setup 
 Clone repo:
 ```bash
