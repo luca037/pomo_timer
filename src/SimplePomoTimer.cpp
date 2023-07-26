@@ -83,11 +83,12 @@ bool timer::SimplePomoTimer::end_session_asking() {
 void timer::SimplePomoTimer::print_state(int min, int sec, std::string state) {
     std::system("clear");
     std::cout << "┌─────────────────────────┐\n"
-              << "│ POMODORO TIMER          │\n" 
-              << "├─────────────────────────┤\n"
-              << "│ Your settings:          │\n"
-              << "│    ► Work time: " << work_min_ << " min   │\n" 
-              << "│    ► Break time: " << break_min_ << " min  │\n"
+              << "│     POMODORO TIMER      │\n" 
+              << "└─────────────────────────┘\n"
+              << "┌─────────────────────────┐\n"
+              << " Your settings:          \n"
+              << "    ► Work time: " << work_min_ << " min\n" 
+              << "    ► Break time: " << break_min_ << " min\n"
               << "└─────────────────────────┘\n"
               << "┌─────────────────────────┐\n"
               << " " << state << "\n"
@@ -101,4 +102,3 @@ void timer::skip_timer(std::atomic_bool* s) {
     for (char c; std::cin >> c && !(s->load()); )
         if (c == 's') { s->store(true); return; }
 }
-
