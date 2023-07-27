@@ -20,7 +20,7 @@ int init_time() {
 
 int main(int argc, char* argv[]) {
     if (argc != 5) {
-        std::cout << "ERROR - You must pass args" << std::endl;
+        std::cerr << "ERROR - You must pass args" << std::endl;
         return 0;
     }
 

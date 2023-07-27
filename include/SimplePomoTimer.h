@@ -7,7 +7,7 @@
 namespace timer {
 
 static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay \
-                                           ../mixkit-gaming-lock-2848.wav";
+                                           ${HOME}/Desktop/random/pomodoro/bell.wav";
 
 class SimplePomoTimer {
  public:
@@ -42,6 +42,6 @@ class SimplePomoTimer {
 
 void skip_timer(std::atomic_bool* s); // check if user want to skip a timer loop
 
-} // end namespace
+} // end timer
 
 #endif

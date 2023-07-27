@@ -47,11 +47,13 @@ void timer::SimplePomoTimer::one_pomo() {
 
     // notify and wait to restart
     std::system(kNotifySoundCmd);
-    if (skip.load()) for (char c; std::cin >> c; ) if (c == 's') break;
+    if (skip.load()) 
+        for (char c; std::cin >> c; ) 
+            if (c == 's') break;
     thr.join();
 
     // start break
-    sec = min = 0; // reset var
+    sec = min = 0; // reset time
     skip.store(false);
 
     thr = std::thread{skip_timer, &skip}; // start new thread
@@ -71,13 +73,18 @@ void timer::SimplePomoTimer::one_pomo() {
 
 // ask to quit session
 bool timer::SimplePomoTimer::end_session_asking() {
+    bool quit = false;
     std::cout << "You done a pomo!\n"
          << "Do you want to end you session here? [y/n]\n"
          << "(timer restarts automatically after the answer)\n";
-    for (char c; std::cin >> c; )
-        if (c == 'y') return true; // end session
-        else if (c == 'n') break;
-    return false;
+    for (char c; std::cin >> c; ) {
+        if (c == 'y') {
+            quit = true;
+        } else if (c == 'n') {
+            break;
+        }
+    }
+    return quit;
 }
 
 void timer::SimplePomoTimer::print_state(int min, int sec, std::string state) {
