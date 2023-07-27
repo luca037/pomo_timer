@@ -73,18 +73,17 @@ void timer::SimplePomoTimer::one_pomo() {
 
 // ask to quit session
 bool timer::SimplePomoTimer::end_session_asking() {
-    bool quit = false;
     std::cout << "You done a pomo!\n"
          << "Do you want to end you session here? [y/n]\n"
          << "(timer restarts automatically after the answer)\n";
     for (char c; std::cin >> c; ) {
         if (c == 'y') {
-            quit = true;
+            return true;
         } else if (c == 'n') {
             break;
         }
     }
-    return quit;
+    return false;
 }
 
 void timer::SimplePomoTimer::print_state(int min, int sec, std::string state) {
