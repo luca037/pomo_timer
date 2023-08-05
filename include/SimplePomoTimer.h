@@ -13,6 +13,11 @@ class SimplePomoTimer {
  public:
     SimplePomoTimer(int w, int b, int p, int tp=0, char* fn=nullptr, char* d=nullptr);
 
+    SimplePomoTimer(const SimplePomoTimer&) = delete;
+    SimplePomoTimer& operator=(const SimplePomoTimer&) = delete;
+    SimplePomoTimer(SimplePomoTimer&&) = default;
+    SimplePomoTimer& operator=(SimplePomoTimer&&) = default;
+
     // start session
     void start();
 
@@ -23,9 +28,6 @@ class SimplePomoTimer {
             calendar_.close();
         }
     }
-
-    SimplePomoTimer(const SimplePomoTimer&) = delete;
-    SimplePomoTimer& operator=(const SimplePomoTimer&) = delete;
 
  private:
     int work_min_;           // working time minutes

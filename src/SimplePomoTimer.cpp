@@ -3,7 +3,6 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <cstring>
 
 timer::SimplePomoTimer::SimplePomoTimer(int w, int b, int p, int tp, char* fn, char* d)
         : work_min_{w}, break_min_{b},
@@ -32,11 +31,10 @@ void timer::SimplePomoTimer::start() {
 
 void timer::SimplePomoTimer::one_pomo() {
     // start work
-    int min{}, sec{};
     std::atomic_bool skip{}; // thread comunication
-
     std::thread thr{skip_timer, &skip}; // start new thread
 
+    int min{}, sec{};
     while (work_min_ != min && !skip.load()) { // work counter
         print_state(min, sec, "Working time:");
         ++sec;
@@ -63,10 +61,10 @@ void timer::SimplePomoTimer::one_pomo() {
         if (sec == 60) { ++min; sec = 0; }
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
+    ++today_pomos_;
     print_state(min, sec, "Break time:");
 
     // end
-    ++today_pomos_;
     std::system(kNotifySoundCmd);
     thr.join(); // wait thread
 }
@@ -88,23 +86,32 @@ bool timer::SimplePomoTimer::end_session_asking() {
 
 void timer::SimplePomoTimer::print_state(int min, int sec, std::string state) {
     std::system("clear");
-    std::cout << "┌─────────────────────────┐\n"
-              << "│     POMODORO TIMER      │\n" 
-              << "└─────────────────────────┘\n"
-              << "┌─────────────────────────┐\n"
+    static std::string bar{};
+    int n_blocks = 28 * today_pomos_ / max_pomos_;
+    while (bar.size() < n_blocks * 2)
+        bar += "█";
+    std::cout << "┌──────────────────────────┐\n"
+              << "│      POMODORO TIMER      │\n" 
+              << "└──────────────────────────┘\n"
+              << "┌──────────────────────────┐\n"
               << " Your settings:          \n"
               << "    ► Work time: " << work_min_ << " min\n" 
               << "    ► Break time: " << break_min_ << " min\n"
-              << "└─────────────────────────┘\n"
-              << "┌─────────────────────────┐\n"
+              << "└──────────────────────────┘\n"
+              << "┌──────────────────────────┐\n"
               << " " << state << "\n"
               << "    ► timer: " << min << ":" << sec << "\n"
               << "    ► pomos: " << today_pomos_ << "/" << max_pomos_ << "\n"
-              << "└─────────────────────────┘\n"
+              << "   ┌───────────────────┐\n"
+              << "    " << bar << "\n"
+              << "   └───────────────────┘\n"
+              << "└──────────────────────────┘\n"
               << "Type 's' start/skip timer\n";
 }
 
 void timer::skip_timer(std::atomic_bool* s) {
     for (char c; std::cin >> c && !(s->load()); )
-        if (c == 's') { s->store(true); return; }
+        if (c == 's') { 
+            s->store(true); return; 
+        }
 }
