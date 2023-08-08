@@ -22,7 +22,9 @@ void timer::SimplePomoTimer::start() {
     // setup window
     setlocale(LC_ALL, ""); // Unicode support
     initscr();             // init curses
+    cbreak();
     noecho();
+    keypad(stdscr, true);
 
     win_ = newwin(40, 80, 0, 0);
     refresh();
@@ -48,11 +50,12 @@ void timer::SimplePomoTimer::start() {
 
 void timer::SimplePomoTimer::one_pomo() {
     // start work
-    nodelay(win_, true);
     int min{}, sec{};
+    char skip = 0;
+
+    nodelay(win_, true);
     while (work_min_ != min) { // work counter
-        char skip = wgetch(win_);
-        if (skip == 's') break;
+        if ((skip = wgetch(win_)) == 's') break;
         print_state(min, sec, "Working time:");
         ++sec;
         if (sec == 60) { ++min; sec = 0; }
@@ -63,14 +66,17 @@ void timer::SimplePomoTimer::one_pomo() {
 
     // notify and wait to restart
     std::system(kNotifySoundCmd);
-    wgetch(win_);
+    while (1) {
+        char c = wgetch(win_);
+        if (c == 's') break;
+    }
 
     // start break
+    sec = min = skip = 0; // reset var
+
     nodelay(win_, true);
-    sec = min = 0; // reset time
     while (break_min_ != min) { // break counter
-        char skip = wgetch(win_);
-        if (skip == 's') break;
+        if ((skip = wgetch(win_)) == 's') break;
         print_state(min, sec, "Break time:");
         ++sec;
         if (sec == 60) { ++min; sec = 0; }
