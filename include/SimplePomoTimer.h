@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <atomic>
+#include <curses.h>
 
 namespace timer {
 
@@ -18,10 +19,24 @@ class SimplePomoTimer {
     SimplePomoTimer(SimplePomoTimer&&) = default;
     SimplePomoTimer& operator=(SimplePomoTimer&&) = default;
 
-    // start session
+    // non mod
+    int get_work_min() const { return work_min_; }
+    int get_break_min() const { return break_min_; }
+    int get_max_pomo() const { return max_pomos_; }
+    int get_today_pomos() const { return today_pomos_; }
+
+    // mod
+    void set_work_min(int n) { work_min_ = n; }
+    void set_break_min(int n) { break_min_ = n; }
+    void set_max_pomo(int n) { max_pomos_ = n; }
+    void set_today_pomos(int n) { today_pomos_ = n; }
+ 
+    // start study session
     void start();
 
     ~SimplePomoTimer() {
+        delwin(win_);
+        endwin(); // close curses
         if(calendar_.is_open()) {
             calendar_ << "dp: " << today_pomos_ << "/"
                       << max_pomos_ << std::endl;
@@ -35,14 +50,17 @@ class SimplePomoTimer {
     int max_pomos_;          // max pomos in a row
     int today_pomos_;        // pomo counter
     std::ofstream calendar_; // save history
+    WINDOW* win_;            // output timer
      
-    void one_pomo();           // do a complete pomo: work and break
-    bool end_session_asking(); // ask user for quitting
+    // do a complete pomo: 1 work and 1 break
+    void one_pomo();           
 
-    void print_state(int min, int sec, std::string); // print timer and settings
+    // ask user for quitting
+    bool end_session_asking(); 
+
+    // print timer and settings
+    void print_state(int min, int sec, std::string); 
 };
-
-void skip_timer(std::atomic_bool* s); // check if user want to skip a timer loop
 
 } // end timer
 

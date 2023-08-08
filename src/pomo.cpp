@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
     char* calendar_file = argv[3];
     char* date = argv[4];
 
+    // setup timer
     timer::SimplePomoTimer timer{
         wait_t, 
         break_t, 
@@ -49,7 +50,6 @@ int main(int argc, char* argv[]) {
 
     // start session
     timer.start();
-    std::cout << "We're done for today. Good job" << std::endl;
 
     return 0;
 }
