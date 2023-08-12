@@ -1,4 +1,4 @@
-# pomo_timer
+# Description
 Simple pomodoro timer.
 
 ```
@@ -20,3 +20,25 @@ Simple pomodoro timer.
 └──────────────────────────┘
 Type 's' start/skip timer
 ```
+
+# Install
+- Clone repo
+- Run setup.sh
+
+# Configuration
+In pomo.sh change
+
+```
+pomo_dir="<abs pomo_timer directory path>"
+calendar_path="<abs calendar.txt path>"
+```
+
+In bashrc add
+```
+pomo () {
+    source <pomo.sh path>
+}
+```
+
+# Usage
+Just run `pomo` in your terminal.
