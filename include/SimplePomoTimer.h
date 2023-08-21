@@ -16,8 +16,8 @@ class SimplePomoTimer {
 
     SimplePomoTimer(const SimplePomoTimer&) = delete;
     SimplePomoTimer& operator=(const SimplePomoTimer&) = delete;
-    SimplePomoTimer(SimplePomoTimer&&) = default;
-    SimplePomoTimer& operator=(SimplePomoTimer&&) = default;
+    SimplePomoTimer(SimplePomoTimer&&) = delete;
+    SimplePomoTimer& operator=(SimplePomoTimer&&) = delete;
 
     // non mod
     int get_work_min() const { return work_min_; }
