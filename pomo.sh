@@ -35,5 +35,14 @@ check_last_day() {
     fi
 }
 
+# manage flags
+if [ "$1" == "-h" ]; then
+    cat $calendar_path
+    exit 0
+fi
+
+# manage last session
 check_last_day
+
+# run pomo
 "${pomo_dir}build/pomodoro" "$add_done_pomos" "$add_max_pomos" "$calendar_path" "$today" 2>/dev/null

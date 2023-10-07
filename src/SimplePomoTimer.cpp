@@ -113,16 +113,17 @@ void timer::SimplePomoTimer::print_state(int min, int sec, std::string state) {
              << "    " << bar << "\n"
              << "   └───────────────────┘\n"
              << "└──────────────────────────┘\n"
-             << "Type 's' start/skip timer\n";
+             << ">> Type 's' start/skip timer\n";
     mvwprintw(win_, 0, 0, "%s", to_print.str().c_str());
     wrefresh(win_);
 }
 
 // ask to quit session
 bool timer::SimplePomoTimer::end_session_asking() {
-    wprintw(win_, "You've done a pomo!\n");
-    wprintw(win_, "Do you want to end you session here? [y/n]\n");
-    wprintw(win_, "(timer restarts automatically after the answer)");
+    wprintw(win_, ">> You've done a pomo!\n");
+    wprintw(win_, ">> Do you want to end you session here?\n");
+    wprintw(win_, "       ► 'y' quit\n");
+    wprintw(win_, "       ► 'n' continue and start timer\n");
     wrefresh(win_);
     bool quit = false;
     while (1) {
