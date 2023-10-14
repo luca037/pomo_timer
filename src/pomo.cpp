@@ -25,11 +25,11 @@ int main(int argc, char* argv[]) {
     }
 
     // setup: work, break, pomo
-    std::cout << "Set work time: ";
+    std::cout << ">> Set work time: ";
     int wait_t{init_time()};
-    std::cout << "Set break time: ";
+    std::cout << ">> Set break time: ";
     int break_t{init_time()};
-    std::cout << "How many pomos today? ";
+    std::cout << ">> How many pomos today? ";
     int max_pomo{init_time()};
 
     // parse cmd args

@@ -11,8 +11,8 @@ check_last_day() {
     last_pomo_day=$(tail -1 $calendar_path | cut -d ' ' -f 1)
 
     if [ $today == $last_pomo_day ]; then
-        echo "Last session: $(tail -1 $calendar_path)"
-        echo "Do you want to restart where you left? [y/n]"
+        echo ">> Last session: $(tail -1 $calendar_path)"
+        echo ">> Do you want to restart where you left? [y/n]"
 
         while true; do
             read res
