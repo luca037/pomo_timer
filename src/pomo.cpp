@@ -21,7 +21,7 @@ int init_time() {
 int main(int argc, char* argv[]) {
     if (argc != 5) {
         std::cerr << "ERROR - You must pass args" << std::endl;
-        return 0;
+        return 1;
     }
 
     // setup: work, break, pomo
