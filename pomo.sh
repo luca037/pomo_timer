@@ -41,6 +41,11 @@ if [ "$1" == "-h" ]; then
     exit 0
 fi
 
+if [ "$1" == "-w" ]; then
+    nvim $calendar_path
+    exit 0
+fi
+
 # manage last session
 check_last_day
 
