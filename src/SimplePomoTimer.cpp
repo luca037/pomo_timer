@@ -123,7 +123,7 @@ bool timer::SimplePomoTimer::end_session_asking() {
     wprintw(win_, ">> You've done a pomo!\n");
     wprintw(win_, ">> Do you want to end you session here?\n");
     wprintw(win_, "       ► 'y' quit\n");
-    wprintw(win_, "       ► 'n' continue and restarts timer\n");
+    wprintw(win_, "       ► 'n' or 's' continue and restarts timer\n");
     wrefresh(win_);
     bool quit = false;
     while (1) {
@@ -131,7 +131,7 @@ bool timer::SimplePomoTimer::end_session_asking() {
         if (r == 'y') {
             quit = true;
             break;
-        } else if (r == 'n') {
+        } else if (r == 'n' || r == 's') {
             break;
         }
     }

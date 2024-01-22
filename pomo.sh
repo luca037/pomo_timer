@@ -42,7 +42,7 @@ if [ "$1" == "-h" ]; then
 fi
 
 if [ "$1" == "-w" ]; then
-    nvim $calendar_path
+    $EDITOR $calendar_path
     exit 0
 fi
 
