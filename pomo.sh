@@ -1,7 +1,7 @@
 #!/bin/bash
 
-pomo_dir="${HOME}/Desktop/random/pomodoro/"
-calendar_path="${HOME}/Desktop/random/pomodoro/calendar.txt"
+pomo_dir="${HOME}/Desktop/random_projects/pomodoro/"
+calendar_path="${HOME}/Desktop/random_projects/pomodoro/calendar.txt"
 today=$(date -I'date')
 
 add_done_pomos=0
