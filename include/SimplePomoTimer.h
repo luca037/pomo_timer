@@ -8,7 +8,7 @@
 namespace timer {
 
 static constexpr char kNotifySoundCmd[] = "notify-send \"Time's up!\" && paplay \
-                                           ${HOME}/Desktop/random/pomodoro/bell.wav";
+                                           ${HOME}/Desktop/random_projects/pomodoro/bell.wav";
 
 class SimplePomoTimer {
  public:
